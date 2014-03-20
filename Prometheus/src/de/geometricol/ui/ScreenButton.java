@@ -15,11 +15,11 @@ public class ScreenButton {
 
 	public String title;
 
-	public int x;
-	public int y;
+	public float x;
+	public float y;
 
-	public int width;
-	public int height;
+	public float width;
+	public float height;
 
 	public TextureRegion textureRegion;
 
@@ -28,7 +28,7 @@ public class ScreenButton {
 
 	public int tempPointer = -1;
 
-	public ScreenButton(String title, int x, int y) {
+	public ScreenButton(String title, float x, float y) {
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -45,7 +45,7 @@ public class ScreenButton {
 		this.y = y;
 	}
 
-	public ScreenButton(String title, int x, int y, int width, int height) {
+	public ScreenButton(String title, float x, float y, float width, float height) {
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -65,7 +65,7 @@ public class ScreenButton {
 		this.height = height;
 	}
 
-	public ScreenButton(String title, int x, int y, TextureRegion texture) {
+	public ScreenButton(String title, float x, float y, TextureRegion texture) {
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -84,7 +84,7 @@ public class ScreenButton {
 		this.textureRegion = texture;
 	}
 
-	public ScreenButton(String title, int x, int y, int width, int height, TextureRegion texture) {
+	public ScreenButton(String title, float x, float y, float width, float height, TextureRegion texture) {
 		int i = 1;
 
 		if (buttons.containsKey(title)) {
@@ -126,7 +126,7 @@ public class ScreenButton {
 	}
 
 	public void updateButton(float delta) {
-		if (isClicked) x--;
+	
 	}
 
 	public void renderButton(SpriteBatch sB) {

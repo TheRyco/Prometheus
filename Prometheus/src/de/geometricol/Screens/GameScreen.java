@@ -10,7 +10,6 @@ import de.geometricol.WorldNRenderer.GameWorld;
 import de.geometricol.ui.UiHandler;
 
 public class GameScreen implements Screen {
-	public OrthographicCamera cam;
 
 	public GameWorld world;
 	public GameRenderer renderer;
@@ -19,16 +18,17 @@ public class GameScreen implements Screen {
 	public final float SCREEN_WIDTH = Gdx.graphics.getWidth();
 	public final float SCREEN_HEIGHT = Gdx.graphics.getHeight();
 
-	public final float GAME_WIDTH = 300;
-	public final float GAME_HEIGHT = 300 * (SCREEN_HEIGHT / SCREEN_WIDTH);
+	public final float GAME_WIDTH = 10;
+	public final float GAME_HEIGHT = GAME_WIDTH * (SCREEN_HEIGHT / SCREEN_WIDTH);
+	
+	public final float SIZING_FACTOR = SCREEN_WIDTH / GAME_WIDTH; 
 
 	public GameScreen() {
-		UiHandler.load(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_WIDTH, GAME_HEIGHT);
+		UiHandler.load(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_WIDTH, GAME_HEIGHT, SIZING_FACTOR);
 		System.out.println("SW: " + SCREEN_WIDTH + " SH: " + SCREEN_HEIGHT + " GW: " + GAME_WIDTH + " GH: " + GAME_HEIGHT);
-		cam = new OrthographicCamera();
-		cam.setToOrtho(true, GAME_WIDTH, GAME_HEIGHT);
+
 		this.world = new GameWorld(this);
-		this.renderer = new GameRenderer(this, cam);
+		this.renderer = new GameRenderer(this);
 		this.inputHandler = new InputHandler();
 		Gdx.input.setInputProcessor(inputHandler);
 

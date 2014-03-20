@@ -5,6 +5,7 @@ import com.badlogic.gdx.InputProcessor;
 
 import de.geometricol.Prometheus.PrometheusGame;
 import de.geometricol.ui.ScreenButton;
+import de.geometricol.ui.UiHandler;
 
 public class InputHandler implements InputProcessor {
 	
@@ -34,6 +35,10 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		float x = screenX;
+		float y = screenY;
+		System.out.println("Touch at: P(" + x / UiHandler.SIZING_FACTOR + "|" + y / UiHandler.SIZING_FACTOR + ")");
+		System.out.println((UiHandler.GAME_WIDTH - 8) + "|" + (UiHandler.GAME_HEIGHT - 4));
 		ScreenButton.onTouchDown(screenX, screenY, pointer);
 		return false;
 	}

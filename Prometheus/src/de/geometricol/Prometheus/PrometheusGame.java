@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 
 import de.geometricol.Handlers.AssetLoader;
 import de.geometricol.Screens.GameScreen;
-import de.geometricol.ui.UiHandler;
 
 
 public class PrometheusGame extends Game {
@@ -23,6 +22,7 @@ public class PrometheusGame extends Game {
 		super.dispose();
 		AssetLoader.dispose();		
 	}
+	
 	
 	
 	
