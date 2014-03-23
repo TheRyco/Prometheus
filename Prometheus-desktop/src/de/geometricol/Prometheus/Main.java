@@ -9,7 +9,7 @@ public class Main {
 		cfg.title = "Prometheus";
 		cfg.useGL20 = false;
 		cfg.width = 600;
-		cfg.height = cfg.width /16 *9;
+		cfg.height = cfg.width / 16 * 9;
 		cfg.resizable = false;
 		new LwjglApplication(new PrometheusGame(), cfg);
 	}

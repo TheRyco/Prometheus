@@ -7,6 +7,11 @@ import de.geometricol.Screens.GameScreen;
 
 
 public class PrometheusGame extends Game {
+	
+	//TODO Font drawing
+	//TODO Input on Android
+	//TODO Map-loading from file
+	//TODO Player Animation
 
 	
 	@Override

@@ -30,7 +30,7 @@ public class GameRenderer {
 
 	}
 
-	public void update() {
+	public void updateCam() {
 		cam.position.x = screen.world.player.position.x + screen.world.player.width/2;
 		cam.position.y = screen.world.player.position.y + screen.world.player.height/2;
 		
@@ -40,7 +40,7 @@ public class GameRenderer {
 	}
 
 	public void render(float delta) {
-		update();
+		updateCam();
 		Gdx.gl.glClearColor(0, 1, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 

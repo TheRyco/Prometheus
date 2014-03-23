@@ -23,13 +23,14 @@ public class EntityPlayer extends Entity {
 		super(screen);
 		texture = AssetLoader.player;
 		position = world.currentMap.spawn;
-		width = 1/16*13 ;
-		height = 1/16*15 ;
-		bounds = new Rectangle(position.x, position.y, width, height);
+		width = 1.0f;
+		height = 1.0f;
+		bounds = new Rectangle(position.x, position.y, width / 16.0f * 13.0f,
+				height / 16.0f * 15.0f);
 		speed = 1;
 		debug = true;
 		shouldDraw = true;
-		
+
 		System.out.println(UiHandler.SIZING_FACTOR);
 	}
 
@@ -49,7 +50,6 @@ public class EntityPlayer extends Entity {
 		if (screen.inputHandler.keys[Input.Keys.DOWN] == true)
 			playerState = PlayerState.WALKING_DOWN;
 
-		System.out.println(playerState);
 		switch (playerState) {
 		case IDLE:
 

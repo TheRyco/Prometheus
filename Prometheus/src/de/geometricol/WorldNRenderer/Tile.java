@@ -31,7 +31,9 @@ public class Tile {
 	
 	public void renderBounds(ShapeRenderer sR, Color color){
 		sR.setColor(color);
-		sR.rect(bounds.x, bounds.y, bounds.x + bounds.width, bounds.y + bounds.height);
+		sR.rect(bounds.x, bounds.y, bounds.width, bounds.height);
 	}
+	
+		
 
 }

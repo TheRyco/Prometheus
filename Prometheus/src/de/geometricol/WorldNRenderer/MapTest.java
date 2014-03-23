@@ -7,6 +7,7 @@ public class MapTest extends Map {
 	public MapTest() {
 		super();
 		spawn = new Vector2(1,2);
+		debug = true;
 
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {

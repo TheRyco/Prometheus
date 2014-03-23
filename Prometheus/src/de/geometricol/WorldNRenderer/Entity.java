@@ -12,7 +12,7 @@ import de.geometricol.Screens.GameScreen;
 
 public abstract class Entity {
 	
-	public boolean debug;
+	public boolean debug = false;
 	
 	public boolean shouldDraw = true;
 
