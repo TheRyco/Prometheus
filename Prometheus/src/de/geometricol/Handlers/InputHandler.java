@@ -38,7 +38,6 @@ public class InputHandler implements InputProcessor {
 		float x = screenX;
 		float y = screenY;
 		System.out.println("Touch at: P(" + x / UiHandler.SIZING_FACTOR + "|" + y / UiHandler.SIZING_FACTOR + ")");
-		System.out.println((UiHandler.GAME_WIDTH - 8) + "|" + (UiHandler.GAME_HEIGHT - 4));
 		ScreenButton.onTouchDown(screenX, screenY, pointer);
 		return false;
 	}

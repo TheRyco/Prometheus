@@ -29,6 +29,7 @@ public class ScreenButton {
 	public int tempPointer = -1;
 
 	public ScreenButton(String title, float x, float y) {
+
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -45,7 +46,9 @@ public class ScreenButton {
 		this.y = y;
 	}
 
-	public ScreenButton(String title, float x, float y, float width, float height) {
+	public ScreenButton(String title, float x, float y, float width,
+			float height) {
+
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -66,6 +69,7 @@ public class ScreenButton {
 	}
 
 	public ScreenButton(String title, float x, float y, TextureRegion texture) {
+
 		int i = 1;
 		if (buttons.containsKey(title)) {
 			while (buttons.containsKey(title + i)) {
@@ -84,7 +88,9 @@ public class ScreenButton {
 		this.textureRegion = texture;
 	}
 
-	public ScreenButton(String title, float x, float y, float width, float height, TextureRegion texture) {
+	public ScreenButton(String title, float x, float y, float width,
+			float height, TextureRegion texture) {
+
 		int i = 1;
 
 		if (buttons.containsKey(title)) {
@@ -126,7 +132,7 @@ public class ScreenButton {
 	}
 
 	public void updateButton(float delta) {
-	
+
 	}
 
 	public void renderButton(SpriteBatch sB) {
@@ -142,10 +148,13 @@ public class ScreenButton {
 			int buttonX = (int) (screenButton.x * SCALE_FACTOR);
 			int buttonY = (int) (screenButton.y * SCALE_FACTOR);
 
-			int buttonXC = buttonX + ((int) (screenButton.width * SCALE_FACTOR));
-			int buttonYC = buttonY + ((int) (screenButton.height * SCALE_FACTOR));
+			int buttonXC = buttonX
+					+ ((int) (screenButton.width * SCALE_FACTOR));
+			int buttonYC = buttonY
+					+ ((int) (screenButton.height * SCALE_FACTOR));
 
-			if (screenX >= buttonX && screenY >= buttonY && screenX <= buttonXC && screenY <= buttonYC) {
+			if (screenX >= buttonX && screenY >= buttonY && screenX <= buttonXC
+					&& screenY <= buttonYC) {
 				screenButton.tempPointer = pointer;
 				screenButton.isClicked = true;
 			}
@@ -171,15 +180,19 @@ public class ScreenButton {
 			int buttonX = (int) (screenButton.x * SCALE_FACTOR);
 			int buttonY = (int) (screenButton.y * SCALE_FACTOR);
 
-			int buttonXC = buttonX + ((int) (screenButton.width * SCALE_FACTOR));
-			int buttonYC = buttonY + ((int) (screenButton.height * SCALE_FACTOR));
+			int buttonXC = buttonX
+					+ ((int) (screenButton.width * SCALE_FACTOR));
+			int buttonYC = buttonY
+					+ ((int) (screenButton.height * SCALE_FACTOR));
 
 			if (screenButton.tempPointer == pointer) {
-				if (!(screenX >= buttonX && screenY >= buttonY && screenX <= buttonXC && screenY <= buttonYC)) {
+				if (!(screenX >= buttonX && screenY >= buttonY
+						&& screenX <= buttonXC && screenY <= buttonYC)) {
 					screenButton.tempPointer = -1;
 					screenButton.isClicked = false;
 				}
-			} else if (screenX >= buttonX && screenY >= buttonY && screenX <= buttonXC && screenY <= buttonYC) {
+			} else if (screenX >= buttonX && screenY >= buttonY
+					&& screenX <= buttonXC && screenY <= buttonYC) {
 				screenButton.tempPointer = pointer;
 				screenButton.isClicked = true;
 			}

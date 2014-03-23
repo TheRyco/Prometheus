@@ -12,7 +12,6 @@ public class PrometheusGame extends Game {
 	@Override
 	public void create() {
 		AssetLoader.load();
-		
 		setScreen(new GameScreen());
 	}
 	
