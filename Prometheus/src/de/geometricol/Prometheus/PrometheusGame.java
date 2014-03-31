@@ -12,6 +12,7 @@ public class PrometheusGame extends Game {
 	//TODO Input on Android
 	//TODO Map-loading from file
 	//TODO Player Animation
+	//TODO Improve ScreenButton Hit detection
 
 	
 	@Override

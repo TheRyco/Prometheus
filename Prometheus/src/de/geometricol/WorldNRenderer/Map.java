@@ -2,8 +2,9 @@ package de.geometricol.WorldNRenderer;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -16,9 +17,12 @@ public class Map {
 	public int heightInTiles;
 	public boolean debug = false;
 	public Vector2 spawn;
+	public Pixmap pixmap;
 	
-	public Map(Texture spriteSheet){
-		
+	public Map(FileHandle file, Vector2 spawn, boolean debug){
+		this.spawn = spawn;
+		this.debug = debug;
+		this.tiles = new ArrayList<Tile>();
 	}
 	
 	public Map(){
@@ -37,6 +41,22 @@ public class Map {
 				tile.renderBounds(sR, Color.RED);
 			}
 			sR.end();
+		}
+		
+	}
+	
+	public void loadFromFile(FileHandle file){
+		try{
+		pixmap = new Pixmap(file);
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		for(int y = 0; y < pixmap.getWidth(); y++){
+			for(int x = 0; x < pixmap.getHeight(); x++){
+				If()
+			}
 		}
 		
 	}

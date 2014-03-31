@@ -4,12 +4,12 @@ import com.badlogic.gdx.math.Vector2;
 
 import de.geometricol.Handlers.AssetLoader;
 
-public class TileGrass extends Tile {
+public class TileStone extends Tile {
 
-	public TileGrass(Vector2 position, float width, float height) {
+	public TileStone(Vector2 position, float width, float height) {
 		super(position, width, height);
-		texture = AssetLoader.grass;
-		visible = true;
+		texture = AssetLoader.stone;
+		collidable = true;
 	}
 
 }

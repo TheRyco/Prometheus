@@ -11,9 +11,9 @@ import com.badlogic.gdx.math.Vector2;
 import de.geometricol.Screens.GameScreen;
 
 public abstract class Entity {
-	
+
 	public boolean debug = false;
-	
+
 	public boolean shouldDraw = true;
 
 	public Vector2 position;
@@ -21,6 +21,10 @@ public abstract class Entity {
 	public float height;
 	public float speed;
 	public Rectangle bounds;
+	public Rectangle leftBounds;
+	public Rectangle rightBounds;
+	public Rectangle upBounds;
+	public Rectangle downBounds;
 	public Texture texture;
 
 	public GameScreen screen;
@@ -29,27 +33,27 @@ public abstract class Entity {
 		this.screen = screen;
 		
 	}
-	
-	public void render(SpriteBatch sB,ShapeRenderer sR){
-		if(debug){
+
+	public void render(SpriteBatch sB, ShapeRenderer sR) {
+		if (debug) {
 			sR.begin(ShapeType.Line);
 			sR.setColor(Color.BLUE);
 			sR.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+			sR.setColor(Color.YELLOW);
 			sR.end();
 		}
-		
-		if(shouldDraw) {
+
+		if (shouldDraw) {
 			sB.begin();
 			sB.enableBlending();
 			sB.draw(texture, position.x, position.y, width, height);
 			sB.end();
 		}
-		
-		
+
 	}
-	
-	public void update(float delta){
-		
+
+	public void update(float delta) {
+
 	}
 
 }

@@ -145,20 +145,18 @@ public class ScreenButton {
 		for (Map.Entry<String, ScreenButton> entry : buttons.entrySet()) {
 			ScreenButton screenButton = entry.getValue();
 
-			int buttonX = (int) (screenButton.x * SCALE_FACTOR);
-			int buttonY = (int) (screenButton.y * SCALE_FACTOR);
+			int buttonX = (int) screenButton.x;
+			int buttonY = (int) screenButton.y;
 
-			int buttonXC = buttonX
-					+ ((int) (screenButton.width * SCALE_FACTOR));
-			int buttonYC = buttonY
-					+ ((int) (screenButton.height * SCALE_FACTOR));
+			int buttonXC = buttonX + (int) screenButton.width;
+			int buttonYC = buttonY + (int) screenButton.height;
 
-			if (screenX >= buttonX && screenY >= buttonY && screenX <= buttonXC
-					&& screenY <= buttonYC) {
+			if (screenX >= buttonX
+					&& (UiHandler.SCREEN_HEIGHT - screenY) >= buttonY
+					&& screenX <= buttonXC && (UiHandler.SCREEN_HEIGHT - screenY) <= buttonYC) {
 				screenButton.tempPointer = pointer;
 				screenButton.isClicked = true;
 			}
-
 		}
 	}
 
@@ -177,22 +175,22 @@ public class ScreenButton {
 		for (Map.Entry<String, ScreenButton> entry : buttons.entrySet()) {
 			ScreenButton screenButton = entry.getValue();
 
-			int buttonX = (int) (screenButton.x * SCALE_FACTOR);
-			int buttonY = (int) (screenButton.y * SCALE_FACTOR);
+			int buttonX = (int) screenButton.x;
+			int buttonY = (int) screenButton.y;
 
 			int buttonXC = buttonX
-					+ ((int) (screenButton.width * SCALE_FACTOR));
+					+ (int) screenButton.width;
 			int buttonYC = buttonY
-					+ ((int) (screenButton.height * SCALE_FACTOR));
+					+ (int) screenButton.height;
 
 			if (screenButton.tempPointer == pointer) {
-				if (!(screenX >= buttonX && screenY >= buttonY
-						&& screenX <= buttonXC && screenY <= buttonYC)) {
+				if (!(screenX >= buttonX && (UiHandler.SCREEN_HEIGHT - screenY) >= buttonY
+						&& screenX <= buttonXC && (UiHandler.SCREEN_HEIGHT - screenY) <= buttonYC)) {
 					screenButton.tempPointer = -1;
 					screenButton.isClicked = false;
 				}
-			} else if (screenX >= buttonX && screenY >= buttonY
-					&& screenX <= buttonXC && screenY <= buttonYC) {
+			} else if (screenX >= buttonX && (UiHandler.SCREEN_HEIGHT - screenY) >= buttonY
+					&& screenX <= buttonXC && (UiHandler.SCREEN_HEIGHT - screenY) <= buttonYC) {
 				screenButton.tempPointer = pointer;
 				screenButton.isClicked = true;
 			}

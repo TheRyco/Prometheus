@@ -21,18 +21,16 @@ public class UiHandler {
 	public static float SIZING_FACTOR;
 
 	public static TestButton testButton;
-	public static ScreenButton xButton;
+	public static ScreenButton xButton,leftButton, rightButton, upButton, downButton;
 
 	public static void update(float delta) {
 		ScreenButton.update(delta);
-		if(ScreenButton.buttons.get("SB_X").isClicked) System.out.println("Hit!");
+		
 	}
 
 	public static void render() {
 		ScreenButton.render(sB);
-		sB.begin();
-		font.draw(sB, "test", 0, 300);
-		sB.end();
+		
 	}
 
 	public static void load(float screenWidth, float screenHeight, float gameWidth, float gameHeight, float sizingFactor) {
@@ -53,7 +51,15 @@ public class UiHandler {
 		
 		xButton = new ScreenButton("SB_X", SCREEN_WIDTH - 150, 50, 80, 80, AssetLoader.xButton);
 		xButton.visible = true;
-
+		
+		leftButton = new ScreenButton("SB_LEFT", 10, 50, 50, 50, AssetLoader.leftButton);
+		leftButton.visible = true;
+		rightButton = new ScreenButton("SB_RIGHT", 90, 50, 50, 50, AssetLoader.rightButton);
+		rightButton.visible = true;
+		upButton = new ScreenButton("SB_UP", 50, 90, 50, 50, AssetLoader.upButton);
+		upButton.visible = true;
+		downButton = new ScreenButton("SB_DOWN", 50, 10, 50, 50, AssetLoader.downButton);
+		downButton.visible = true;
 	}
 
 }

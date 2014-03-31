@@ -17,6 +17,10 @@ public class GameRenderer {
 	public SpriteBatch sB;
 	public ShapeRenderer sR;
 
+	Integer frames = 0;
+	float time = 0;
+	String lastFrames = "0";
+
 	private OrthographicCamera cam;
 
 	public GameRenderer(GameScreen screen) {
@@ -31,9 +35,11 @@ public class GameRenderer {
 	}
 
 	public void updateCam() {
-		cam.position.x = screen.world.player.position.x + screen.world.player.width/2;
-		cam.position.y = screen.world.player.position.y + screen.world.player.height/2;
-		
+		cam.position.x = screen.world.player.position.x
+				+ screen.world.player.width / 2;
+		cam.position.y = screen.world.player.position.y
+				+ screen.world.player.height / 2;
+
 		cam.update();
 		sR.setProjectionMatrix(cam.combined);
 		sB.setProjectionMatrix(cam.combined);
@@ -49,6 +55,20 @@ public class GameRenderer {
 
 		UiHandler.update(delta);
 		UiHandler.render();
+
+		frames++;
+		time += delta;
+
+		if (time >= 1.0f) {
+			System.out.println(frames.toString());
+			lastFrames = frames.toString();
+			frames = 0;
+			time = 0;
+		}
+		UiHandler.sB.begin();
+		UiHandler.font.draw(UiHandler.sB, lastFrames, 30, screen.SCREEN_HEIGHT - 30);
+		UiHandler.sB.end();
+
 	}
 
 }

@@ -10,13 +10,14 @@ import com.badlogic.gdx.math.Vector2;
 public class Tile {
 
 	public Texture texture;
-	
+	public boolean visible = true;
+
 	public Vector2 position;
 	public float width;
 	public float height;
-	
+
 	public Rectangle bounds;
-	public boolean collidable;
+	public boolean collidable = false;
 
 	public Tile(Vector2 position, float width, float height) {
 		this.position = position;
@@ -24,16 +25,14 @@ public class Tile {
 		this.height = height;
 		bounds = new Rectangle(position.x, position.y, width, height);
 	}
-	
-	public void render(SpriteBatch sB){
-		sB.draw(texture,position.x, position.y, width, height);
+
+	public void render(SpriteBatch sB) {
+		if (texture != null && visible) sB.draw(texture, position.x, position.y, width, height);
 	}
-	
-	public void renderBounds(ShapeRenderer sR, Color color){
+
+	public void renderBounds(ShapeRenderer sR, Color color) {
 		sR.setColor(color);
 		sR.rect(bounds.x, bounds.y, bounds.width, bounds.height);
 	}
-	
-		
 
 }
