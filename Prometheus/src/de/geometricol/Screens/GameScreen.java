@@ -30,6 +30,7 @@ public class GameScreen implements Screen {
 		this.world = new GameWorld(this);
 		this.renderer = new GameRenderer(this);
 		
+		//TEST CHANGE LOOOOL
 		
 		this.inputHandler = new InputHandler();
 		Gdx.input.setInputProcessor(inputHandler);
