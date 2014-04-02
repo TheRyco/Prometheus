@@ -60,7 +60,6 @@ public class GameRenderer {
 		time += delta;
 
 		if (time >= 1.0f) {
-			System.out.println(frames.toString());
 			lastFrames = frames.toString();
 			frames = 0;
 			time = 0;

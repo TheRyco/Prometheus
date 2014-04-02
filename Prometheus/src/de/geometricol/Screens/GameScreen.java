@@ -25,7 +25,7 @@ public class GameScreen implements Screen {
 
 	public GameScreen() {
 		UiHandler.load(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_WIDTH, GAME_HEIGHT, SIZING_FACTOR);
-		System.out.println("SW: " + SCREEN_WIDTH + " SH: " + SCREEN_HEIGHT + " GW: " + GAME_WIDTH + " GH: " + GAME_HEIGHT);
+		//System.out.println("SW: " + SCREEN_WIDTH + " SH: " + SCREEN_HEIGHT + " GW: " + GAME_WIDTH + " GH: " + GAME_HEIGHT);
 		
 		this.world = new GameWorld(this);
 		this.renderer = new GameRenderer(this);
