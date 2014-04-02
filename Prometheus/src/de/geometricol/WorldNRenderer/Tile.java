@@ -18,6 +18,19 @@ public class Tile {
 
 	public Rectangle bounds;
 	public boolean collidable = false;
+	
+	public Tile(Vector2 position, float width, float height, Texture texture, boolean visible, boolean collidable) {
+		this.position = position;
+		this.width = width;
+		this.height = height;
+		bounds = new Rectangle(position.x, position.y, width, height);
+		
+		this.texture = texture;
+		this.visible = visible;
+		this.collidable = collidable;
+	}
+	
+
 
 	public Tile(Vector2 position, float width, float height) {
 		this.position = position;

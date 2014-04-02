@@ -10,55 +10,74 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
+import de.geometricol.Handlers.AssetLoader;
+
 public class Map {
-	
+
 	public ArrayList<Tile> tiles;
 	public int widthInTiles;
 	public int heightInTiles;
 	public boolean debug = false;
 	public Vector2 spawn;
 	public Pixmap pixmap;
-	
-	public Map(FileHandle file, Vector2 spawn, boolean debug){
+
+	public Map(FileHandle file, Vector2 spawn, boolean debug) {
 		this.spawn = spawn;
 		this.debug = debug;
 		this.tiles = new ArrayList<Tile>();
+
+		loadFromFile(file, false);
 	}
-	
-	public Map(){
+
+	public Map(FileHandle file, boolean debug) {
+		this.debug = debug;
+		this.tiles = new ArrayList<Tile>();
+
+		loadFromFile(file, true);
+	}
+
+	public Map() {
 		this.tiles = new ArrayList<Tile>();
 	}
-	
-	public void render(SpriteBatch sB, ShapeRenderer sR){  
+
+	public void render(SpriteBatch sB, ShapeRenderer sR) {
 		sB.begin();
-		for(Tile tile : tiles){
+		for (Tile tile : tiles) {
 			tile.render(sB);
 		}
 		sB.end();
-		if(debug){
+		if (debug) {
 			sR.begin(ShapeType.Line);
-			for(Tile tile : tiles){
+			for (Tile tile : tiles) {
 				tile.renderBounds(sR, Color.RED);
 			}
 			sR.end();
 		}
-		
+
 	}
-	
-	public void loadFromFile(FileHandle file){
-		try{
-		pixmap = new Pixmap(file);
-		
-		}catch(Exception e){
+
+	public void loadFromFile(FileHandle file, boolean spawnFromFile) {
+		try {
+			pixmap = new Pixmap(file);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		for(int y = 0; y < pixmap.getWidth(); y++){
-			for(int x = 0; x < pixmap.getHeight(); x++){
-				If()
+
+		for (int x = 0; x < pixmap.getWidth(); x++) {
+			for (int y = 0; y < pixmap.getHeight(); y++) {
+				Vector2 pos = new Vector2(x, pixmap.getHeight() - y - 1);
+
+				if (pixmap.getPixel(x, y) == 0xFFFFFFff)
+					spawn = new Vector2(pos);
+				
+				if (pixmap.getPixel(x, y) == 0x00FF00ff)
+					tiles.add(new Tile(pos, 1, 1, AssetLoader.grass, true, false));
+
+				if (pixmap.getPixel(x, y) == 0x404040ff)
+					tiles.add(new Tile(pos, 1, 1, AssetLoader.stone, true, true));
 			}
 		}
-		
+
 	}
-	
 }

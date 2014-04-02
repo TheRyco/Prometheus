@@ -10,6 +10,8 @@ public class TileStone extends Tile {
 		super(position, width, height);
 		texture = AssetLoader.stone;
 		collidable = true;
+		
+	
 	}
 
 }
