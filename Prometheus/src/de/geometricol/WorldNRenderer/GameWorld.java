@@ -2,6 +2,7 @@ package de.geometricol.WorldNRenderer;
 
 import com.badlogic.gdx.Gdx;
 
+import de.geometricol.Entity.EntityPlayer;
 import de.geometricol.Screens.GameScreen;
 
 public class GameWorld {
@@ -15,6 +16,8 @@ public class GameWorld {
 		mapDemo = new Map(Gdx.files.internal("data/MapDemo.png"), false);
 		currentMap = mapDemo;
 		player = new EntityPlayer(screen, this);
+		player.debug = true;
+		mapDemo.debug = true;
 		
 	}
 
