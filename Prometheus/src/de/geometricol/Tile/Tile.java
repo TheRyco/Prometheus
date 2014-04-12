@@ -1,4 +1,4 @@
-package de.geometricol.WorldNRenderer;
+package de.geometricol.Tile;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;

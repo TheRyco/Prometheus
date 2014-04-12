@@ -11,16 +11,17 @@ public class GameWorld {
 
 	public EntityPlayer player;
 
+	public boolean debug = false;
+	
 	public GameWorld(GameScreen screen) {
 		this.screen = screen;
 
-		mapDemo = new Map(Gdx.files.internal("data/MapDemo.png"), false);
+		mapDemo = new Map(Gdx.files.internal("data/MapDemo.png"), debug);
 
 		System.out.println(mapDemo.widthInTiles);
 
 		currentMap = mapDemo;
-		player = new EntityPlayer(screen, this);
-		player.debug = true;
+		player = new EntityPlayer(screen, this, debug);
 
 	}
 

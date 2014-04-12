@@ -2,6 +2,9 @@ package de.geometricol.WorldNRenderer;
 
 import com.badlogic.gdx.math.Vector2;
 
+import de.geometricol.Tile.TileGrass;
+import de.geometricol.Tile.TileStone;
+
 public class MapTest extends Map {
 
 	public MapTest() {

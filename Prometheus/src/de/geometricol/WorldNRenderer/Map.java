@@ -11,13 +11,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
 import de.geometricol.Handlers.AssetLoader;
+import de.geometricol.Tile.Tile;
 
 public class Map {
 
 	public ArrayList<Tile> tiles;
 	public int widthInTiles;
 	public int heightInTiles;
-	public boolean debug = false;
+	public boolean debug;
 	public Vector2 spawn;
 	public Pixmap pixmap;
 

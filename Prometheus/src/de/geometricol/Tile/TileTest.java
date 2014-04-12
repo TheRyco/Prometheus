@@ -1,4 +1,4 @@
-package de.geometricol.WorldNRenderer;
+package de.geometricol.Tile;
 
 import com.badlogic.gdx.math.Vector2;
 
