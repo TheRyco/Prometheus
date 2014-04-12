@@ -28,6 +28,8 @@ public class EntityPlayer extends Entity {
 
 	public Rectangle leftInter, rightInter, upInter, downInter;
 
+	public Tile tUL, tUM, tUR, tLU, tLM, tLD, tDL, tDM, tDR, tRU, tRM, tRD;
+
 	public EntityPlayer(GameScreen screen, GameWorld world) {
 		super(screen);
 		this.screen = screen;
@@ -70,6 +72,23 @@ public class EntityPlayer extends Entity {
 		sR.rect(downInter.x, downInter.y, downInter.width, downInter.height);
 
 		sR.end();
+
+		if ((tUL != null) && (tLU != null) && (tDL != null) && (tRU != null)) {
+			sR.begin(ShapeType.Line);
+			tUL.renderBounds(sR, Color.ORANGE);
+			tUM.renderBounds(sR, Color.ORANGE);
+			tUR.renderBounds(sR, Color.ORANGE);
+			tLU.renderBounds(sR, Color.ORANGE);
+			tLM.renderBounds(sR, Color.ORANGE);
+			tLD.renderBounds(sR, Color.ORANGE);
+			tDL.renderBounds(sR, Color.ORANGE);
+			tDM.renderBounds(sR, Color.ORANGE);
+			tDR.renderBounds(sR, Color.ORANGE);
+			tRU.renderBounds(sR, Color.ORANGE);
+			tRM.renderBounds(sR, Color.ORANGE);
+			tRD.renderBounds(sR, Color.ORANGE);
+			sR.end();
+		}
 	}
 
 	public void update(float delta) {
@@ -131,9 +150,9 @@ public class EntityPlayer extends Entity {
 		lM = new Vector2(Math.round(position.x) - 1, Math.round(position.y));
 		lD = new Vector2(Math.round(position.x) - 1, Math.round(position.y) - 1);
 
-		Tile tLU = currentMap.tiles.get((int) (lU.x + lU.y * currentMap.widthInTiles));
-		Tile tLM = currentMap.tiles.get((int) (lM.x + lM.y * currentMap.widthInTiles));
-		Tile tLD = currentMap.tiles.get((int) (lD.x + lD.y * currentMap.widthInTiles));
+		tLU = currentMap.tiles.get((int) (lU.x + (lU.y * currentMap.widthInTiles)-1));
+		tLM = currentMap.tiles.get((int) (lM.x + (lM.y * currentMap.widthInTiles)-1));
+		tLD = currentMap.tiles.get((int) (lD.x + (lD.y * currentMap.widthInTiles)-1));
 
 		if (tLU.collidable) {
 			if (tLU.bounds.overlaps(bounds)) return true;
@@ -145,7 +164,6 @@ public class EntityPlayer extends Entity {
 			if (tLD.bounds.overlaps(bounds)) return true;
 		}
 
-		
 		return false;
 	}
 
@@ -157,9 +175,9 @@ public class EntityPlayer extends Entity {
 		rM = new Vector2(Math.round(position.x) + 1, Math.round(position.y));
 		rD = new Vector2(Math.round(position.x) + 1, Math.round(position.y) - 1);
 
-		Tile tRU = currentMap.tiles.get((int) (rU.x + rU.y * currentMap.widthInTiles));
-		Tile tRM = currentMap.tiles.get((int) (rM.x + rM.y * currentMap.widthInTiles));
-		Tile tRD = currentMap.tiles.get((int) (rD.x + rD.y * currentMap.widthInTiles));
+		tRU = currentMap.tiles.get((int) (rU.x + rU.y * currentMap.widthInTiles)-1);
+		tRM = currentMap.tiles.get((int) (rM.x + rM.y * currentMap.widthInTiles)-1);
+		tRD = currentMap.tiles.get((int) (rD.x + rD.y * currentMap.widthInTiles)-1);
 
 		if (tRU.collidable) {
 			if (tRU.bounds.overlaps(bounds)) return true;
@@ -170,7 +188,6 @@ public class EntityPlayer extends Entity {
 		if (tRD.collidable) {
 			if (tRD.bounds.overlaps(bounds)) return true;
 		}
-
 
 		return false;
 	}
@@ -183,9 +200,9 @@ public class EntityPlayer extends Entity {
 		uM = new Vector2(Math.round(position.x), Math.round(position.y) + 1);
 		uR = new Vector2(Math.round(position.x) + 1, Math.round(position.y) + 1);
 
-		Tile tUL = currentMap.tiles.get((int) (uL.x + uL.y * currentMap.widthInTiles));
-		Tile tUM = currentMap.tiles.get((int) (uM.x + uM.y * currentMap.widthInTiles));
-		Tile tUR = currentMap.tiles.get((int) (uR.x + uR.y * currentMap.widthInTiles));
+		tUL = currentMap.tiles.get((int) (uL.x + uL.y * currentMap.widthInTiles)-1);
+		tUM = currentMap.tiles.get((int) (uM.x + uM.y * currentMap.widthInTiles)-1);
+		tUR = currentMap.tiles.get((int) (uR.x + uR.y * currentMap.widthInTiles)-1);
 
 		if (tUL.collidable) {
 			if (tUL.bounds.overlaps(bounds)) return true;
@@ -208,9 +225,9 @@ public class EntityPlayer extends Entity {
 		dM = new Vector2(Math.round(position.x), Math.round(position.y) - 1);
 		dR = new Vector2(Math.round(position.x) + 1, Math.round(position.y) - 1);
 
-		Tile tDL = currentMap.tiles.get((int) (dL.x + dL.y * currentMap.widthInTiles));
-		Tile tDM = currentMap.tiles.get((int) (dM.x + dM.y * currentMap.widthInTiles));
-		Tile tDR = currentMap.tiles.get((int) (dR.x + dR.y * currentMap.widthInTiles));
+		tDL = currentMap.tiles.get((int) (dL.x + dL.y * currentMap.widthInTiles)-1);
+		tDM = currentMap.tiles.get((int) (dM.x + dM.y * currentMap.widthInTiles)-1);
+		tDR = currentMap.tiles.get((int) (dR.x + dR.y * currentMap.widthInTiles)-1);
 
 		if (tDL.collidable) {
 			if (tDL.bounds.overlaps(bounds)) return true;

@@ -64,20 +64,23 @@ public class Map {
 			e.printStackTrace();
 		}
 
-		for (int x = 0; x < pixmap.getWidth(); x++) {
-			for (int y = 0; y < pixmap.getHeight(); y++) {
-				Vector2 pos = new Vector2(x, pixmap.getHeight() - y - 1);
+		for (int y = 0; y < pixmap.getHeight(); y++) {
+			for (int x = 0; x < pixmap.getWidth(); x++) {
+				Vector2 pos = new Vector2(x, y);
 
-				if (pixmap.getPixel(x, y) == 0xFFFFFFff)
+				if (pixmap.getPixel(x, pixmap.getHeight() - y - 1) == 0xFFFFFFff) {
 					spawn = new Vector2(pos);
-				
-				if (pixmap.getPixel(x, y) == 0x00FF00ff)
 					tiles.add(new Tile(pos, 1, 1, AssetLoader.grass, true, false));
+				}
 
-				if (pixmap.getPixel(x, y) == 0x404040ff)
-					tiles.add(new Tile(pos, 1, 1, AssetLoader.stone, true, true));
+				if (pixmap.getPixel(x, pixmap.getHeight() - y - 1) == 0x00FF00ff) tiles.add(new Tile(pos, 1, 1, AssetLoader.grass, true, false));
+
+				if (pixmap.getPixel(x, pixmap.getHeight() - y - 1) == 0x404040ff) tiles.add(new Tile(pos, 1, 1, AssetLoader.stone, true, true));
 			}
 		}
+
+		widthInTiles = pixmap.getWidth();
+		heightInTiles = pixmap.getHeight();
 
 	}
 }

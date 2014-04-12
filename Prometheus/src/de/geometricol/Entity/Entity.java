@@ -31,7 +31,7 @@ public abstract class Entity {
 
 	public Entity(GameScreen screen) {
 		this.screen = screen;
-		
+
 	}
 
 	public void render(SpriteBatch sB, ShapeRenderer sR) {
@@ -53,7 +53,6 @@ public abstract class Entity {
 	}
 
 	public void update(float delta) {
-
 	}
 
 }

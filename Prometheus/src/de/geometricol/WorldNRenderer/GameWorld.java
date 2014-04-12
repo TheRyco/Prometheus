@@ -16,6 +16,8 @@ public class GameWorld {
 
 		mapDemo = new Map(Gdx.files.internal("data/MapDemo.png"), false);
 
+		System.out.println(mapDemo.widthInTiles);
+
 		currentMap = mapDemo;
 		player = new EntityPlayer(screen, this);
 		player.debug = true;
