@@ -11,7 +11,7 @@ public class TileStone extends Tile {
 		super(position, width, height);
 		texture = AssetLoader.stone;
 		collidable = true;
-		this.bounds = new Rectangle(position.x + 0.5f, position.y, width + 0.5f, height);
+		bounds = new Rectangle(position.x + 0.125f, position.y + 0.25f, width - 0.1875f, height - 0.45f);
 		
 	
 	}

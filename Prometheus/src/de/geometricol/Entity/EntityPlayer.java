@@ -10,10 +10,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import de.geometricol.Handlers.AssetLoader;
+import de.geometricol.Map.Map;
 import de.geometricol.Screens.GameScreen;
 import de.geometricol.Tile.Tile;
 import de.geometricol.WorldNRenderer.GameWorld;
-import de.geometricol.WorldNRenderer.Map;
 import de.geometricol.ui.UiHandler;
 
 public class EntityPlayer extends Entity {

@@ -3,6 +3,7 @@ package de.geometricol.WorldNRenderer;
 import com.badlogic.gdx.Gdx;
 
 import de.geometricol.Entity.EntityPlayer;
+import de.geometricol.Map.Map;
 import de.geometricol.Screens.GameScreen;
 
 public class GameWorld {
@@ -17,8 +18,6 @@ public class GameWorld {
 		this.screen = screen;
 
 		mapDemo = new Map(Gdx.files.internal("data/MapDemo.png"), debug);
-
-		System.out.println(mapDemo.widthInTiles);
 
 		currentMap = mapDemo;
 		player = new EntityPlayer(screen, this, debug);
