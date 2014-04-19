@@ -14,6 +14,8 @@ import de.geometricol.ui.UiHandler;
 
 public class GameRenderer {
 
+	public float zoom = 1.0f;
+
 	public GameScreen screen;
 	public SpriteBatch sB;
 	public ShapeRenderer sR;
@@ -36,22 +38,16 @@ public class GameRenderer {
 	}
 
 	public void updateCam() {
-		if(screen.inputHandler.keys[Keys.MINUS]){ 
-			cam.viewportHeight ++;
-			cam.viewportWidth ++;
-		}
-		
-		if(screen.inputHandler.keys[Keys.PLUS]){ 
-			cam.viewportHeight --;
-			cam.viewportWidth --;
-		}
-		
-		
-		
-		cam.position.x = screen.world.player.position.x
-				+ screen.world.player.width / 2;
-		cam.position.y = screen.world.player.position.y
-				+ screen.world.player.height / 2;
+
+		if (screen.inputHandler.keys[Keys.PLUS]) zoom -= 0.05f;
+		if (screen.inputHandler.keys[Keys.MINUS]) zoom += 0.05f;
+		System.out.println(zoom);
+
+		cam.viewportWidth = screen.GAME_WIDTH * zoom;
+		cam.viewportHeight = screen.GAME_HEIGHT * zoom;
+
+		cam.position.x = screen.world.player.position.x + screen.world.player.width / 2;
+		cam.position.y = screen.world.player.position.y + screen.world.player.height / 2;
 
 		cam.update();
 		sR.setProjectionMatrix(cam.combined);
