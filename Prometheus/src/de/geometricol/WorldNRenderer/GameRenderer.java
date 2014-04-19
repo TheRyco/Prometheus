@@ -2,6 +2,7 @@ package de.geometricol.WorldNRenderer;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -35,6 +36,18 @@ public class GameRenderer {
 	}
 
 	public void updateCam() {
+		if(screen.inputHandler.keys[Keys.MINUS]){ 
+			cam.viewportHeight ++;
+			cam.viewportWidth ++;
+		}
+		
+		if(screen.inputHandler.keys[Keys.PLUS]){ 
+			cam.viewportHeight --;
+			cam.viewportWidth --;
+		}
+		
+		
+		
 		cam.position.x = screen.world.player.position.x
 				+ screen.world.player.width / 2;
 		cam.position.y = screen.world.player.position.y

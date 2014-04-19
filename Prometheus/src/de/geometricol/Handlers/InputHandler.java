@@ -1,11 +1,8 @@
 package de.geometricol.Handlers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 
-import de.geometricol.Prometheus.PrometheusGame;
 import de.geometricol.ui.ScreenButton;
-import de.geometricol.ui.UiHandler;
 
 public class InputHandler implements InputProcessor {
 	
